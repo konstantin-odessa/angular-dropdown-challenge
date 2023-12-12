@@ -1,0 +1,7 @@
+<app-dropdown
+    [items]="items$ | async"
+    [label]="'title'"
+    [value]="'id'"
+    (selected)="onSelected($event)"
+>
+</app-dropdown>
