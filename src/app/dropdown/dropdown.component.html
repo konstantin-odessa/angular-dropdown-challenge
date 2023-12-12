@@ -1,30 +1,24 @@
-<div class="wrapper">
-    <div class="container"
-         [class.opened]="state === DropdownStateEnum.Opened"
-        (click)="toggle()">
+<div class="container"
+     [class.opened]="state === DropdownStateEnum.Opened"
+    (click)="toggle()">
 
-        <div *ngIf="selectedItem" class="selected-label">{{ selectedItem[label] }}</div>
+    <div *ngIf="selectedItem; else placeholderTmpl" class="selected-label">{{ selectedItem[label] }}</div>
+    <ng-template #placeholderTmpl>
+        <div class="selected-label placeholder">{{ placeholder }}</div>
+    </ng-template>
 
-        <div class="icons-container">
-            <i *ngIf="selectedItem" class="icon close-icon" (click)="remove($event)"></i>
-            <i [class.opened]="state === DropdownStateEnum.Opened" class="icon arrow-icon"></i>
-        </div>
-
+    <div class="icons-container">
+        <i *ngIf="selectedItem" class="icon close-icon" (click)="remove($event)"></i>
+        <i [class.opened]="state === DropdownStateEnum.Opened" class="icon arrow-icon"></i>
     </div>
 
-    <ng-container *ngTemplateOutlet="list"></ng-container>
 </div>
 
-
-<ng-template #list>
-    <ng-container *ngIf="state === DropdownStateEnum.Opened">
-        <ul class="list">
-            <li class="list-item"
-                [class.selected]="item[value] === selectedItem?.[value]"
-                (click)="select(item[value])"
-                *ngFor="let item of items">
-                {{ item[label] }}
-            </li>
-        </ul>
-    </ng-container>
-</ng-template>
+<ul *ngIf="state === DropdownStateEnum.Opened" class="list">
+    <li class="list-item"
+        [class.selected]="item[value] === selectedItem?.[value]"
+        (click)="select(item[value])"
+        *ngFor="let item of items">
+        {{ item[label] }}
+    </li>
+</ul>

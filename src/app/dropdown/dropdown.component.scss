@@ -10,10 +10,7 @@
   --size-input-padding-x: 16px;
 
   font-family: 'Poppins', serif;
-
-}
-
-.wrapper {
+  display: block;
   max-width: 15em;
 }
 
@@ -64,7 +61,12 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  &.placeholder {
+    color: var(--color-border-grey);
+  }
 }
+
 
 .list {
   padding: 0;
