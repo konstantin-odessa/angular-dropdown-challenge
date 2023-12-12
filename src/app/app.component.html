@@ -1,7 +1,19 @@
+<!-- without usage of reactive forms -->
+
+<!--<app-dropdown-->
+<!--    [items]="items$ | async"-->
+<!--    [label]="'title'"-->
+<!--    [value]="'id'"-->
+<!--    (selected)="onSelected($event)"-->
+<!--&gt;-->
+<!--</app-dropdown>-->
+
+<!-- using reactive forms -->
+
 <app-dropdown
     [items]="items$ | async"
     [label]="'title'"
     [value]="'id'"
-    (selected)="onSelected($event)"
+    [formControl]="movieControl"
 >
 </app-dropdown>

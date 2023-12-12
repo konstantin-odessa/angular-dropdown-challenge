@@ -1,4 +1,4 @@
-<div class="container"
+<div class="container" [class.disabled]="disabled" role="button"
      [class.opened]="state === DropdownStateEnum.Opened"
     (click)="toggle()">
 
@@ -11,7 +11,6 @@
         <i *ngIf="selectedItem" class="icon close-icon" (click)="remove($event)"></i>
         <i [class.opened]="state === DropdownStateEnum.Opened" class="icon arrow-icon"></i>
     </div>
-
 </div>
 
 <ul *ngIf="state === DropdownStateEnum.Opened" class="list">

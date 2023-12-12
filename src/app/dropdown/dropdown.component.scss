@@ -54,6 +54,11 @@
   &.opened {
     border-color: var(--color-primary-blue);
   }
+
+  &.disabled {
+    pointer-events: none;
+    background: #f3f3f3;
+  }
 }
 
 .selected-label {
